@@ -1,0 +1,166 @@
+@media screen and (max-width: 1200px) {
+    .product-cont { grid-template-columns: repeat(3, 1fr); }
+    .aboutUsText { padding: 0 15rem; }
+    .wishlist-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media screen and (max-width: 1024px) {
+    .product-cont { grid-template-columns: repeat(3, 1fr); height: auto; grid-auto-rows: 28rem; }
+    .sneaker-img { transform: scale(0.95); }
+    .sneakerSize { margin-left: 0; }
+    .btnBuy-cont { margin-right: 1.5rem; }
+    .aboutUsText { padding: 0 12rem; }
+    .aboutUs { width: 95%; column-gap: 2rem; }
+    .hText-cont { width: 65%; }
+    .footer-cont { height: 30rem; }
+    .footerBar-cont2 { transform: translateY(21.5rem); }
+    .auth-container { gap: 4rem; }
+    .profile-layout { grid-template-columns: 18rem 1fr; }
+}
+
+@media screen and (max-width: 900px) {
+    .product-detail-cont { grid-template-columns: 1fr; }
+    .profile-layout { grid-template-columns: 1fr; }
+    .profile-sidebar { order: 2; }
+    .product-cont { grid-template-columns: repeat(2, 1fr); }
+    .wishlist-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (max-width: 850px) {
+    .hero-parallax { height: 59rem; }
+    .cont-nav { overflow: visible; }
+    .menu-btn {
+        display: block;
+        margin-right: 2rem;
+        font-size: 2.5rem;
+        color: var(--text);
+        transition: all 0.5s;
+        cursor: pointer;
+    }
+    .menu-btn:hover { color: var(--primary); }
+    .menu-btn-active {
+        position: absolute;
+        display: block;
+        right: 2.1rem;
+        font-size: 2.8rem;
+        transform-origin: center center;
+        opacity: 0;
+        z-index: -1;
+        filter: blur(3px);
+        transition: all 0.5s;
+    }
+    .close-active {
+        opacity: 1;
+        transform: rotate(360deg);
+        filter: blur(0px);
+        transition: all 0.5s;
+        color: var(--text);
+        z-index: 50;
+    }
+    .btn-active {
+        transform-origin: center center;
+        transform: rotate(360deg);
+        opacity: 0;
+        filter: blur(3px);
+        transition: all 0.5s;
+        z-index: 51;
+    }
+    .nav-cont {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        right: 0; top: 0;
+        padding: 1rem 1rem 20rem;
+        background-color: rgba(255,255,255,0.98);
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.5s;
+        transform: translateX(100%);
+        opacity: 0;
+        z-index: 3;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+    }
+    .nav-cont.active { transform: translateX(0); opacity: 1; }
+    .nav-cont a { color: var(--text); font-size: 2.2rem; }
+    .hero-cont { height: 65rem; }
+    .heroText-cont { margin-top: 6rem; height: 59rem; grid-template-columns: 1fr; grid-template-rows: 1fr; }
+    .hText-cont { transform: scale(1.3); border-radius: 16px; padding: 0 0 1.5rem; }
+    .heroText { grid-column: 1/3; }
+    .noticeBar { height: 4rem; }
+    .nav-icons { display: none; }
+    .ul-cont {
+        transform: translateX(200%);
+        width: 30%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .ul-cont::after {
+        position: absolute;
+        content: "";
+        align-self: flex-end;
+        width: 20rem;
+        height: 1px;
+        background: var(--border);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s;
+        transition-delay: 0.2s;
+        z-index: -1;
+    }
+    .ul-cont:hover::after { transform: scaleX(1); }
+    .ul1.active { transition-delay: 0.2s; transform: translateX(0); }
+    .ul2.active { transition-delay: 0.3s; transform: translateX(0); }
+    .ul3.active { transition-delay: 0.4s; transform: translateX(0); }
+    .ul4.active { transition-delay: 0.5s; transform: translateX(0); }
+    .ul5.active { transition-delay: 0.6s; transform: translateX(0); }
+    .footer-cont { height: 43rem; }
+    .socialIcons { transform: translateX(-2rem); column-gap: 1.5rem; row-gap: 1.5rem; }
+    .footer-cont > * { transform: scale(1.3); }
+    .footerBar-cont2 { transform: translateY(35rem); }
+    .auth-container { flex-direction: column; gap: 2rem; }
+    .auth-logo { align-items: center; }
+}
+
+@media screen and (max-width: 768px) {
+    .cart-header, .cart-row { grid-template-columns: 2fr 1fr 1fr; }
+    .cart-row > :last-child, .cart-header > :last-child { display: none; }
+    .product-detail-cont { gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+}
+
+@media screen and (max-width: 600px) {
+    .product-cont { grid-template-columns: repeat(2, 1fr); padding: 0 1rem; grid-auto-rows: 22rem; }
+    .wishlist-grid { grid-template-columns: repeat(2, 1fr); }
+    .auth-container { padding: 2rem 1.5rem; margin-top: 6rem; }
+    .auth-card { width: 100%; padding: 2.5rem 2rem; }
+    .aboutUs { flex-direction: column; width: 90%; }
+    .aboutUsText { padding: 0 8rem; }
+    .footer-cont {
+        height: 47rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 28rem 7rem;
+        justify-items: center;
+        overflow: hidden;
+    }
+    .footer-cont > :not(.socialIcons) { width: 100%; transform: scale(1); font-size: 2rem; padding: 1rem; }
+    .socialIcons { grid-column: 1/3; grid-row: 2/3; transform: translateX(0); width: 25%; margin: 0; padding: 0; }
+    .footerBar-cont2 { transform: translateY(39rem); }
+    .shop-header { padding: 2rem 1rem 1rem; }
+}
+
+@media screen and (max-width: 480px) {
+    .product-cont { grid-template-columns: repeat(2, 1fr); padding: 0 0.5rem; grid-auto-rows: 20rem; row-gap: 1.5rem; }
+    .content-page { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .cart-header { display: none; }
+    .cart-row { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
+    .cart-product { grid-column: 1/-1; }
+    .wishlist-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .footer-cont { grid-template-columns: 1fr; grid-template-rows: 20rem 15rem 15rem; height: 60rem; }
+    .FAQ-cont, .address-cont, .socialIcons { grid-column: 1/2; }
+    .socialIcons { grid-row: 3/4; width: 35%; }
+    .footerBar-cont2 { transform: translateY(50rem); }
+    .velzck { display: block; position: relative; }
+    .velzck-cont { height: 5rem; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; row-gap: 1rem; justify-items: center; transform: translateY(-8rem); }
+}

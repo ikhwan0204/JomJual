@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JomJual - Campus Marketplace</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header id="top">
+    <div class="cont-nav pMain">
+        <a href="#" onclick="showPage('home')">
+            <h1 class="tittle"><span>Jom</span>Jual</h1>
+        </a>
+        <div class="menuBar"></div>
+        <div class="nav-main">
+            <nav>
+                <ul class="nav-cont">
+                    <div class="dec-bar"></div>
+                    <div class="ul-cont ul1"><li><a href="#" onclick="showPage('home')">Home</a></li></div>
+                    <div class="ul-cont ul2"><li><a href="#contact">Contact</a></li></div>
+                    <div class="ul-cont ul3"><li><a href="#aboutUs">About</a></li></div>
+                    <div class="ul-cont ul4"><li><a href="#" onclick="showPage('signup')">Sign Up</a></li></div>
+                </ul>
+            </nav>
+        </div>
+        <div class="nav-icons">
+            <a href="#" onclick="showPage('wishlist')" class="nav-icon-btn" title="Wishlist">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="#" onclick="showPage('cart')" class="nav-icon-btn cart-icon" title="Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">2</span>
+            </a>
+            <a href="#" onclick="showPage('profile')" class="nav-icon-btn user-icon" title="Profile">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+        <div class="menu-btn"><i class="fas fa-bars"></i></div>
+        <div class="menu-btn-active"><i class="fas fa-times"></i></div>
+    </div>
+</header>
+
+<!-- ===== PAGE: HOME ===== -->
+<div id="page-home" class="page active-page">
+
+    <div class="hero-parallax">
+    <video class="hero-bg-video" autoplay muted loop playsinline>
+        <source src="imgs/parallax/uitm3d.mp4" type="video/mp4">
+    </video>
+   <!-- <div class="rellax snk" data-rellax-speed="-1" data-rellax-zindex="1"></div> -->
+</div>
+
+    <div class="hero-cont">
+        <div class="hero">
+            <div class="heroText-cont">
+                <div class="heroText">
+                    <div class="hText-cont">
+                        <h2 class="hText-main">CAMPUS CRAVINGS</h2>
+                        <div class="tbs-cont">
+                            <div class="scrollText-cont">
+                                <div class="scrollText">
+                                    <h2><span>order.</span></h2>
+                                    <h2><span>now.</span></h2>
+                                    <h2><span>delivered.</span></h2>
+                                    <h2><span>to.</span></h2>
+                                    <h2><span>your dorm.</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="hText-p">Late-night study session? Craving your favorite snacks? Find everything you need right here in the hostel. Fast, nearby, and sold by your fellow students.</p>
+                        <div class="cta-cont">
+                            <a class="cta" href="#shop">See What's New</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="mn">
+        <div class="noticeBar" id="shop">
+            <h2 id="tx0">Campus Deals</h2>
+            <h2 id="tx1">COD Available</h2>
+            <h2 id="tx2">UiTM Students</h2>
+            <h2 id="tx3">COD Available</h2>
+            <h2 id="tx4">Campus Deals</h2>
+        </div>
+
+        <div class="shop-header">
+            <h2>🔥 Latest Listings</h2>
+            <p>Find deals at your asrama</p>
+        </div>
+
+        <div class="product-cont">
+
+            <div tabindex="0" class="snkc sneaker-cont1" onclick="showProductDetail('cookies')">
+                <img loading="lazy" class="sneaker-img" src="imgs/chocolatechip.webp" alt="Chocolate Chip Cookies">
+                <div class="sneakerDesc">
+                    <div class="sneaker-decor"></div>
+                    <div class="data-cont">
+                        <div class="sneakerName">
+                            <h2>Chocolate Chip</h2>
+                            <div class="snk-class"><h3>Cookies</h3></div>
+                        </div>
+                        <div class="btnBuy-cont">
+                            <div class="btnBuy" onclick="event.stopPropagation(); addToCart('Chocolate Chip Cookies', 5)">
+                                <h3><i class="fas fa-shopping-cart"></i></h3>
+                            </div>
+                        </div>
+                        <div class="sneakerSize">
+                            <h3>Seller Info</h3>
+                            <div class="sizes price-tag">RM5.00</div>
+                            <div class="sizes"><span>Blok C, Level 2</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div tabindex="0" class="snkc sneaker-cont2" onclick="showProductDetail('bajukurung')">
+                <img loading="lazy" class="sneaker-img" src="imgs/bajukurung.webp" alt="Baju Kurung Moden">
+                <div class="sneakerDesc">
+                    <div class="sneaker-decor"></div>
+                    <div class="data-cont">
+                        <div class="sneakerName">
+                            <h2>Baju Kurung</h2>
+                            <div class="snk-class"><h3>Moden</h3></div>
+                        </div>
+                        <div class="btnBuy-cont">
+                            <div class="btnBuy" onclick="event.stopPropagation(); addToCart('Baju Kurung Moden', 35)">
+                                <h3><i class="fas fa-shopping-cart"></i></h3>
+                            </div>
+                        </div>
+                        <div class="sneakerSize">
+                            <h3>Seller Info</h3>
+                            <div class="sizes price-tag">RM35.00</div>
+                            <div class="sizes"><span>Blok A, Level 3</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div tabindex="0" class="snkc sneaker-cont3" onclick="showProductDetail('cupcake')">
+                <img loading="lazy" class="sneaker-img" src="imgs/Cupcake.webp" alt="Cupcake">
+                <div class="sneakerDesc">
+                    <div class="sneaker-decor"></div>
+                    <div class="data-cont">
+                        <div class="sneakerName">
+                            <h2>Cupcake</h2>
+                            <div class="snk-class"><h3>Chocolate</h3></div>
+                        </div>
+                        <div class="btnBuy-cont">
+                            <div class="btnBuy" onclick="event.stopPropagation(); addToCart('Cupcake Chocolate', 3.5)">
+                                <h3><i class="fas fa-shopping-cart"></i></h3>
+                            </div>
+                        </div>
+                        <div class="sneakerSize">
+                            <h3>Seller Info</h3>
+                            <div class="sizes price-tag">RM3.50</div>
+                            <div class="sizes"><span>Blok B, Level 1</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div tabindex="0" class="snkc sneaker-cont4" onclick="showProductDetail('scrunchies')">
+                <img loading="lazy" class="sneaker-img" src="imgs/handmade.webp" alt="Handmade Scrunchies">
+                <div class="sneakerDesc">
+                    <div class="sneaker-decor"></div>
+                    <div class="data-cont">
+                        <div class="sneakerName">
+                            <h2>Handmade</h2>
+                            <div class="snk-class"><h3>Scrunchies</h3></div>
+                        </div>
+                        <div class="btnBuy-cont">
+                            <div class="btnBuy" onclick="event.stopPropagation(); addToCart('Handmade Scrunchies', 8)">
+                                <h3><i class="fas fa-shopping-cart"></i></h3>
+                            </div>
+                        </div>
+                        <div class="sneakerSize">
+                            <h3>Seller Info</h3>
+                            <div class="sizes price-tag">RM8.00</div>
+                            <div class="sizes"><span>Blok D, Level 1</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="scrollpage-cont"></div>
+    </main>
+
+    <div class="aboutUs-cont">
+        <div class="aboutUsTop-cont">
+            <div class="aboutUs-bar2"></div>
+            <div class="aboutUsTop">
+                <div id="aboutUs" class="aboutUsText">
+                    <div class="icon_text">
+                        <div class="aboutUsTop-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="aboutUsTop-text"><h2>Campus Based</h2></div>
+                    </div>
+                    <div class="icon_text">
+                        <div class="aboutUsTop-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="aboutUsTop-text"><h2>COD in campus</h2></div>
+                    </div>
+                    <div class="icon_text">
+                        <div class="aboutUsTop-icon"><i class="fas fa-user-graduate"></i></div>
+                        <div class="aboutUsTop-text"><h2>by students for students</h2></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aboutUs">
+            <div id="a1" class="us-cont">
+                <h2>our values</h2>
+                <div class="aboutUs-bar"></div>
+                <p>JomJual is built on trust, transparency, and community. Every transaction connects a student seller with a fellow student buyer right on campus — safe, fast, and easy.</p>
+            </div>
+            <div id="a2" class="us-cont">
+                <h2>about us</h2>
+                <div class="aboutUs-bar"></div>
+                <p>We're UiTM students building a marketplace for UiTM students. Whether you're selling homemade food, preloved clothes, or handmade crafts — JomJual is your campus store.</p>
+            </div>
+            <div id="a3" class="us-cont">
+                <h2>our mission</h2>
+                <div class="aboutUs-bar"></div>
+                <p>To empower campus entrepreneurs and help students find what they need without leaving their dorm. Supporting local sellers, one hostel block at a time.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div id="contact" class="footerBar-cont">
+            <div class="footerBar"></div>
+        </div>
+        <div class="footerBar-cont2">
+            <div class="footerBar2"></div>
+        </div>
+        <div class="footer-cont">
+            <div class="address-cont">
+                <div class="address">
+                    <h2>address</h2>
+                    <p>UiTM Kampus Kuala Terengganu.</p>
+                </div>
+                <div class="contact">
+                    <h2>contact</h2>
+                    <li><span>WhatsApp:</span> +60 12-345 6789</li>
+                    <li><span>Email:</span> jomjual@uitm.edu.my</li>
+                </div>
+            </div>
+            <div id="FAQ" class="FAQ-cont">
+                <div class="FAQ">
+                    <h2>faq</h2>
+                    <li>How do I list my product?</li>
+                    <li>How does COD work on campus?</li>
+                    <li>Can I return or refund?</li>
+                    <li>How do I chat with a seller?</li>
+                    <li>Is JomJual free to use?</li>
+                </div>
+            </div>
+            <div class="socialIcons">
+                <a href="#"><i title="WhatsApp" class="fab fa-whatsapp"></i></a>
+                <a href="#"><i title="Instagram" class="fab fa-instagram"></i></a>
+                <a href="#"><i title="Facebook" class="fab fa-facebook"></i></a>
+                <a id="in" href="#"><i title="Twitter" class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="velzck-cont">
+            <div class="velzck">
+                <h2 class="v1">2024 JomJual — Campus Marketplace</h2>
+                <h2 class="v2"><i class="fas fa-map-marker-alt"></i> UiTM Kampus Kuala Terengganu.</h2>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- ===== PAGE: LOGIN ===== -->
+<div id="page-login" class="page auth-page">
+    <div class="auth-container">
+        <div class="auth-logo">
+            <img src="imgs/uitmlogo.webp" alt="UiTM Logo">
+            <h1 class="tittle-auth"><span>Jom</span>Jual</h1>
+            <p>Campus Marketplace for Students</p>
+        </div>
+        <div class="auth-card">
+            <h2>Log in to Exclusive</h2>
+            <p class="auth-sub">Enter your details below</p>
+            <div class="auth-form">
+                <input type="email" class="auth-input" placeholder="Email or Phone Number" id="login-email">
+                <input type="password" class="auth-input" placeholder="Password" id="login-password">
+                <button class="btn-primary" onclick="doLogin()">Log In</button>
+                <div class="auth-links">
+                    <a href="#" class="auth-link-forgot">Forgot Password?</a>
+                </div>
+                <div class="auth-divider"><span>or</span></div>
+                <button class="btn-google" onclick="doLogin()">
+                    <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/><path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z"/></svg>
+                    Sign up with Google
+                </button>
+                <p class="auth-switch">Don't have an account? <a href="#" onclick="showPage('signup')">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE: SIGNUP ===== -->
+<div id="page-signup" class="page auth-page">
+    <div class="auth-container">
+        <div class="auth-logo">
+            <img src="imgs/uitmlogo.webp" alt="UiTM Logo">
+            <h1 class="tittle-auth"><span>Jom</span>Jual</h1>
+            <p>Campus Marketplace for Students</p>
+        </div>
+        <div class="auth-card">
+            <h2>Create an account</h2>
+            <p class="auth-sub">Enter your details below</p>
+            <div class="auth-form">
+                <input type="text" class="auth-input" placeholder="Name">
+                <input type="email" class="auth-input" placeholder="Email or Phone Number">
+                <input type="password" class="auth-input" placeholder="Password">
+                <button class="btn-primary" onclick="showPage('home')">Create Account</button>
+                <div class="auth-divider"><span>or</span></div>
+                <button class="btn-google" onclick="showPage('home')">
+                    <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/><path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z"/></svg>
+                    Sign up with Google
+                </button>
+                <p class="auth-switch">Already have account? <a href="#" onclick="showPage('login')">Log in</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE: PRODUCT DETAIL ===== -->
+<div id="page-product" class="page content-page">
+    <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">Account</a> / 
+        <span id="product-category">food</span> / 
+        <span id="product-name-bc">Chocolate Chip</span>
+    </div>
+    <div class="product-detail-cont">
+        <div class="product-detail-img">
+            <img id="product-img" src="imgs/chocolatechip.webp" alt="Product">
+        </div>
+        <div class="product-detail-info">
+            <h1 id="product-title">Chocolate Chip Cookies</h1>
+            <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="review-count">(150 Reviews)</span>
+                <span class="stock-badge in-stock">In Stock</span>
+            </div>
+            <div class="product-price-detail">
+                <span id="product-price">RM 5.00</span> / pack
+            </div>
+            <p id="product-desc" class="product-desc-text">Homemade choc chip cookies, freshly baked every morning. Each pack contains 10 pieces. Can COD at Blok C lobby or anywhere in campus. DM for bulk order!</p>
+            <div class="product-meta">
+                <span class="meta-tag"><i class="fas fa-map-marker-alt"></i> <span id="product-blok">Blok C</span></span>
+                <span class="meta-tag"><i class="fas fa-check-circle"></i> Ready now</span>
+                <span class="meta-tag stock-count"><i class="fas fa-box"></i> 5 stocks left</span>
+            </div>
+            <div class="qty-row">
+                <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                <span class="qty-val" id="qty-display">1</span>
+                <button class="qty-btn" onclick="changeQty(1)">+</button>
+                <button class="wishlist-btn" onclick="addToWishlist()"><i class="far fa-heart"></i></button>
+            </div>
+            <div class="seller-card">
+                <div class="seller-avatar" id="seller-avatar">A</div>
+                <div class="seller-info">
+                    <strong id="seller-name">Amirah Roslan</strong>
+                    <p id="seller-blok"><i class="fas fa-map-marker-alt"></i> Blok C, Level 2</p>
+                    <div class="seller-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span>(32 sold)</span>
+                        <span class="stock-badge in-stock">In Stock</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="btn-primary full-width" onclick="addToCart(currentProduct.name, currentProduct.price)">Add to Cart</button>
+                <button class="btn-chat full-width" onclick="showPage('chat')"><i class="fas fa-comment"></i> Chat with seller</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE: CART ===== -->
+<div id="page-cart" class="page content-page">
+    <div class="breadcrumb">
+        <a href="#" onclick="showPage('home')">Home</a> / <span>Cart</span>
+    </div>
+    <div class="cart-container">
+        <div class="cart-header">
+            <span>Product</span>
+            <span>Price</span>
+            <span>Quantity</span>
+            <span>Subtotal</span>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Total: </span><strong id="cart-total-price">RM 0.00</strong>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <button class="btn-outline" onclick="showPage('home')">← Return To Homepage</button>
+            <button class="btn-primary" onclick="updateCart()">Update Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE: CHAT ===== -->
+<div id="page-chat" class="page content-page">
+    <div class="chat-container">
+        <div class="chat-header-bar">
+            <div class="chat-avatar">A</div>
+            <div class="chat-header-info">
+                <h3>Amirah Roslan</h3>
+                <span class="online-dot"></span><span class="online-text">Online</span>
+            </div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="msg received">
+                <p>Hi! I saw you're interested in my Chocolate Chip Cookies 🍪</p>
+            </div>
+            <div class="msg sent">
+                <p>Yes! Are they still available?</p>
+            </div>
+            <div class="msg received">
+                <p>Yes still ada! 5 packs left. You kat blok mana? Boleh COD anytime 😊</p>
+            </div>
+            <div class="msg sent">
+                <p>I'm at Blok E. Can we meet at the cafe?</p>
+            </div>
+            <div class="msg received">
+                <p>Boleh je! Petang ni free ke? Around 5pm?</p>
+            </div>
+        </div>
+        <div class="chat-input-bar">
+            <input type="text" id="chat-input" placeholder="Type a new message here" onkeypress="handleChatKey(event)">
+            <button class="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE: PROFILE ===== -->
+<div id="page-profile" class="page content-page">
+    <div class="profile-layout">
+        <div class="profile-sidebar">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> / <span>My Account</span>
+            </div>
+            <div class="sidebar-section">
+                <h4>Manage My Account</h4>
+                <ul>
+                    <li class="active"><a href="#">My Profile</a></li>
+                    <li><a href="#">Address Book</a></li>
+                    <li><a href="#">My Payment Options</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h4>My Orders</h4>
+                <ul>
+                    <li><a href="#">My Returns</a></li>
+                    <li><a href="#">My Cancellations</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h4><a href="#" onclick="showPage('wishlist')">My WishList</a></h4>
+            </div>
+        </div>
+        <div class="profile-content">
+            <h2 class="profile-title">Edit Your Profile</h2>
+            <div class="profile-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-input" value="Khairul">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-input" value="Amir">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-input" value="khairul@uitm.edu.my">
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-input" value="Blok E, Level 3, UiTM Shah Alam">
+                    </div>
+                </div>
+                <div class="form-group full">
+                    <label>Password Changes</label>
+                    <input type="password" class="form-input" placeholder="Current Password">
+                    <input type="password" class="form-input" placeholder="New Password" style="margin-top:10px">
+                    <input type="password" class="form-input" placeholder="Confirm New Password" style="margin-top:10px">
+                </div>
+                <div class="form-actions">
+                    <button class="btn-outline" onclick="showPage('home')">Cancel</button>
+                    <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE: WISHLIST ===== -->
+<div id="page-wishlist" class="page content-page">
+    <div class="wishlist-container">
+        <div class="wishlist-header">
+            <h2>Wishlist (<span id="wishlist-count">0</span>)</h2>
+            <button class="btn-outline" onclick="moveAllToCart()">Move All To Bag</button>
+        </div>
+        <div id="wishlist-items" class="wishlist-grid"></div>
+    </div>
+</div>
+
+<!-- ===== TOAST NOTIFICATION ===== -->
+<div id="toast" class="toast"></div>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="rellax.min.js"></script>
+<script>
+    // Init parallax
+    try { var rellax = new Rellax('.rellax'); } catch(e) {}
+
+    // Mobile menu
+    $(document).ready(function () {
+        $('.menu-btn').click(function () {
+            $('.nav-cont').toggleClass('active')
+            $('.menu-btn').toggleClass('btn-active')
+            $('.menu-btn-active').toggleClass('close-active')
+            $('.ul1,.ul2,.ul3,.ul4,.ul5').toggleClass('active')
+        });
+        $('.ul-cont').click(function () {
+            $('.nav-cont').toggleClass('active')
+            $('.menu-btn').toggleClass('btn-active')
+            $('.menu-btn-active').toggleClass('close-active')
+            $('.ul1,.ul2,.ul3,.ul4,.ul5').toggleClass('active')
+        });
+    });
+
+    // ===== STATE =====
+    let cart = [
+        { name: 'Chocolate Chip Cookies', price: 5, qty: 1, img: 'imgs/chocolatechip.webp' },
+        { name: 'Cupcake Chocolate', price: 3.5, qty: 2, img: 'imgs/Cupcake.webp' }
+    ];
+    let wishlist = [];
+    let currentQty = 1;
+    let currentProduct = {};
+
+    const products = {
+        cookies: { name: 'Chocolate Chip Cookies', price: 5, img: 'imgs/chocolatechip.webp', category: 'food', blok: 'Blok C', desc: 'Homemade choc chip cookies, freshly baked every morning. Each pack contains 10 pieces. Can COD at Blok C lobby or anywhere in campus. DM for bulk order!', seller: 'Amirah Roslan', sellerBlok: 'Blok C, Level 2', sellerAvatar: 'A' },
+        bajukurung: { name: 'Baju Kurung Moden', price: 35, img: 'imgs/bajukurung.webp', category: 'fashion', blok: 'Blok A', desc: 'Baju Kurung Moden warna dusty pink. Size S-XL available. Bahan berkualiti, sesuai untuk formal atau casual. COD kat Blok A lobby.', seller: 'Sarah Izzati', sellerBlok: 'Blok A, Level 3', sellerAvatar: 'S' },
+        cupcake: { name: 'Cupcake Chocolate', price: 3.5, img: 'imgs/Cupcake.webp', category: 'food', blok: 'Blok B', desc: 'Homemade chocolate cupcakes dengan cream cheese frosting. Boleh order custom flavor. Minimum order 4 pcs. COD dalam campus.', seller: 'Nadia Hamdan', sellerBlok: 'Blok B, Level 1', sellerAvatar: 'N' },
+        scrunchies: { name: 'Handmade Scrunchies', price: 8, img: 'imgs/handmade.webp', category: 'accessories', blok: 'Blok D', desc: 'Handmade scrunchies with premium fabric. Pelbagai corak dan warna. 3 pcs per set. Sesuai untuk hantaran atau hadiah. COD available.', seller: 'Hana Zulaikha', sellerBlok: 'Blok D, Level 1', sellerAvatar: 'H' }
+    };
+
+    // ===== PAGE NAVIGATION =====
+    function showPage(page) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+        const target = document.getElementById('page-' + page);
+        if (target) {
+            target.classList.add('active-page');
+            window.scrollTo(0, 0);
+        }
+        if (page === 'cart') renderCart();
+        if (page === 'wishlist') renderWishlist();
+    }
+
+    // ===== PRODUCT DETAIL =====
+    function showProductDetail(productKey) {
+        const p = products[productKey];
+        if (!p) return;
+        currentProduct = p;
+        currentQty = 1;
+        document.getElementById('product-title').textContent = p.name;
+        document.getElementById('product-name-bc').textContent = p.name.split(' ').slice(0,2).join(' ');
+        document.getElementById('product-category').textContent = p.category;
+        document.getElementById('product-price').textContent = 'RM ' + p.price.toFixed(2);
+        document.getElementById('product-img').src = p.img;
+        document.getElementById('product-img').alt = p.name;
+        document.getElementById('product-desc').textContent = p.desc;
+        document.getElementById('product-blok').textContent = p.blok;
+        document.getElementById('seller-name').textContent = p.seller;
+        document.getElementById('seller-blok').innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + p.sellerBlok;
+        document.getElementById('seller-avatar').textContent = p.sellerAvatar;
+        document.getElementById('qty-display').textContent = currentQty;
+        showPage('product');
+    }
+
+    function changeQty(delta) {
+        currentQty = Math.max(1, currentQty + delta);
+        document.getElementById('qty-display').textContent = currentQty;
+    }
+
+    // ===== CART =====
+    function addToCart(name, price) {
+        const existing = cart.find(i => i.name === name);
+        if (existing) {
+            existing.qty++;
+        } else {
+            const p = Object.values(products).find(p => p.name === name);
+            cart.push({ name, price, qty: 1, img: p ? p.img : '' });
+        }
+        updateCartBadge();
+        showToast('✓ Added to cart!');
+    }
+
+    function renderCart() {
+        const container = document.getElementById('cart-items');
+        if (cart.length === 0) {
+            container.innerHTML = '<div class="empty-state"><i class="fas fa-shopping-cart"></i><p>Your cart is empty</p></div>';
+            document.getElementById('cart-total-price').textContent = 'RM 0.00';
+            return;
+        }
+        let total = 0;
+        container.innerHTML = cart.map((item, i) => {
+            const sub = item.price * item.qty;
+            total += sub;
+            return `<div class="cart-row">
+                <div class="cart-product">
+                    <button class="remove-btn" onclick="removeFromCart(${i})"><i class="fas fa-times-circle"></i></button>
+                    <img src="${item.img}" alt="${item.name}">
+                    <span>${item.name}</span>
+                </div>
+                <div class="cart-price">RM${item.price.toFixed(2)}</div>
+                <div class="cart-qty">
+                    <button onclick="cartQty(${i},-1)">▼</button>
+                    <span>${String(item.qty).padStart(2,'0')}</span>
+                    <button onclick="cartQty(${i},1)">▲</button>
+                </div>
+                <div class="cart-subtotal">RM${sub.toFixed(2)}</div>
+            </div>`;
+        }).join('');
+        document.getElementById('cart-total-price').textContent = 'RM ' + total.toFixed(2);
+    }
+
+    function cartQty(i, delta) {
+        cart[i].qty = Math.max(1, cart[i].qty + delta);
+        renderCart();
+        updateCartBadge();
+    }
+
+    function removeFromCart(i) {
+        cart.splice(i, 1);
+        renderCart();
+        updateCartBadge();
+    }
+
+    function updateCart() { showToast('✓ Cart updated!'); }
+
+    function updateCartBadge() {
+        const total = cart.reduce((s, i) => s + i.qty, 0);
+        document.querySelector('.cart-badge').textContent = total;
+    }
+
+    // ===== WISHLIST =====
+    function addToWishlist() {
+        if (!currentProduct.name) return;
+        if (!wishlist.find(i => i.name === currentProduct.name)) {
+            wishlist.push({ ...currentProduct });
+            showToast('♥ Added to wishlist!');
+        } else {
+            showToast('Already in wishlist!');
+        }
+    }
+
+    function renderWishlist() {
+        document.getElementById('wishlist-count').textContent = wishlist.length;
+        const container = document.getElementById('wishlist-items');
+        if (wishlist.length === 0) {
+            container.innerHTML = '<div class="empty-state"><i class="far fa-heart"></i><p>Your wishlist is empty</p></div>';
+            return;
+        }
+        container.innerHTML = wishlist.map((item, i) => `
+            <div class="wishlist-card">
+                <button class="remove-wish" onclick="removeWishlist(${i})"><i class="fas fa-trash"></i></button>
+                <img src="${item.img}" alt="${item.name}">
+                <button class="btn-add-cart-wish" onclick="addToCart('${item.name}', ${item.price})">
+                    <i class="fas fa-shopping-cart"></i> Add To Cart
+                </button>
+                <div class="wish-info">
+                    <p class="wish-name">${item.name}</p>
+                    <p class="wish-blok">${item.sellerBlok}</p>
+                    <p class="wish-price">RM${item.price.toFixed(0)}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function removeWishlist(i) {
+        wishlist.splice(i, 1);
+        renderWishlist();
+    }
+
+    function moveAllToCart() {
+        wishlist.forEach(item => addToCart(item.name, item.price));
+        wishlist = [];
+        renderWishlist();
+        showToast('✓ Moved all to cart!');
+    }
+
+    // ===== CHAT =====
+    function sendMessage() {
+        const input = document.getElementById('chat-input');
+        const msg = input.value.trim();
+        if (!msg) return;
+        const container = document.getElementById('chat-messages');
+        const div = document.createElement('div');
+        div.className = 'msg sent';
+        div.innerHTML = `<p>${msg}</p>`;
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+        input.value = '';
+        setTimeout(() => {
+            const reply = document.createElement('div');
+            reply.className = 'msg received';
+            reply.innerHTML = '<p>Ok noted! 😊</p>';
+            container.appendChild(reply);
+            container.scrollTop = container.scrollHeight;
+        }, 1000);
+    }
+
+    function handleChatKey(e) {
+        if (e.key === 'Enter') sendMessage();
+    }
+
+    // ===== AUTH =====
+    function doLogin() {
+        showPage('home');
+        showToast('✓ Logged in successfully!');
+    }
+
+    function saveProfile() {
+        showToast('✓ Profile saved!');
+    }
+
+    // ===== TOAST =====
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Init
+    updateCartBadge();
+</script>
+
+</body>
+</html>

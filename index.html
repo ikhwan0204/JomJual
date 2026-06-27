@@ -33,18 +33,34 @@
                 </ul>
             </nav>
         </div>
-        <div class="nav-icons">
-            <a href="#" onclick="showPage('wishlist')" class="nav-icon-btn" title="Wishlist">
-                <i class="far fa-heart"></i>
-            </a>
-            <a href="#" onclick="showPage('cart')" class="nav-icon-btn cart-icon" title="Cart">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-badge">2</span>
-            </a>
-            <a href="#" onclick="showPage('profile')" class="nav-icon-btn user-icon" title="Profile">
-                <i class="fas fa-user-circle"></i>
-            </a>
-        </div>
+       <div class="nav-icons">
+    <a href="#" onclick="showPage('wishlist')" class="nav-icon-btn" title="Wishlist">
+        <i class="far fa-heart"></i>
+    </a>
+    <a href="#" onclick="showPage('cart')" class="nav-icon-btn cart-icon" title="Cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge">0</span>
+    </a>
+    
+    <!-- Become Seller button (Only visible to Buyers) -->
+    <a href="#" onclick="showPage('become-seller')" class="nav-icon-btn" id="nav-become-seller" title="Become a Seller" style="display: none;">
+        <i class="fas fa-store"></i>
+    </a>
+    
+    <!-- Admin button (Only visible to Admins) -->
+    <a href="#" onclick="showPage('admin')" class="nav-icon-btn" id="nav-admin" title="Admin Panel" style="display: none;">
+        <i class="fas fa-shield-alt"></i>
+    </a>
+    
+    <!-- Sell button (Only visible to Sellers and Admins) -->
+    <a href="#" onclick="showPage('create-product')" class="nav-icon-btn" id="nav-sell" title="Sell Item" style="background: #DB4444; color: white; padding: 8px 15px; border-radius: 5px; margin-right: 5px; display: none;">
+        <i class="fas fa-plus"></i> Sell
+    </a>
+    
+    <a href="#" onclick="showPage('profile')" class="nav-icon-btn user-icon" title="Profile">
+        <i class="fas fa-user-circle"></i>
+    </a>
+</div>
         <div class="menu-btn"><i class="fas fa-bars"></i></div>
         <div class="menu-btn-active"><i class="fas fa-times"></i></div>
     </div>
@@ -52,13 +68,11 @@
 
 <!-- ===== PAGE: HOME ===== -->
 <div id="page-home" class="page active-page">
-
     <div class="hero-parallax">
-    <video class="hero-bg-video" autoplay muted loop playsinline>
-        <source src="imgs/parallax/uitm3d.mp4" type="video/mp4">
-    </video>
-   <!-- <div class="rellax snk" data-rellax-speed="-1" data-rellax-zindex="1"></div> -->
-</div>
+        <video class="hero-bg-video" autoplay muted loop playsinline>
+            <source src="imgs/parallax/uitm3d.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <div class="hero-cont">
         <div class="hero">
@@ -102,8 +116,8 @@
         </div>
 
         <div class="product-cont">
-
-            <div tabindex="0" class="snkc sneaker-cont1" onclick="showProductDetail('cookies')">
+            <!-- Product 1: Chocolate Chip Cookies -->
+            <div tabindex="0" class="snkc sneaker-cont1" data-product="cookies">
                 <img loading="lazy" class="sneaker-img" src="imgs/chocolatechip.webp" alt="Chocolate Chip Cookies">
                 <div class="sneakerDesc">
                     <div class="sneaker-decor"></div>
@@ -113,7 +127,7 @@
                             <div class="snk-class"><h3>Cookies</h3></div>
                         </div>
                         <div class="btnBuy-cont">
-                            <div class="btnBuy" onclick="event.stopPropagation(); addToCart('Chocolate Chip Cookies', 5)">
+                            <div class="btnBuy" onclick="addToCart('Chocolate Chip Cookies', 5)">
                                 <h3><i class="fas fa-shopping-cart"></i></h3>
                             </div>
                         </div>
@@ -126,7 +140,8 @@
                 </div>
             </div>
 
-            <div tabindex="0" class="snkc sneaker-cont2" onclick="showProductDetail('bajukurung')">
+            <!-- Product 2: Baju Kurung Moden -->
+            <div tabindex="0" class="snkc sneaker-cont2" data-product="bajukurung">
                 <img loading="lazy" class="sneaker-img" src="imgs/bajukurung.webp" alt="Baju Kurung Moden">
                 <div class="sneakerDesc">
                     <div class="sneaker-decor"></div>
@@ -136,7 +151,7 @@
                             <div class="snk-class"><h3>Moden</h3></div>
                         </div>
                         <div class="btnBuy-cont">
-                            <div class="btnBuy" onclick="event.stopPropagation(); addToCart('Baju Kurung Moden', 35)">
+                            <div class="btnBuy" onclick="addToCart('Baju Kurung Moden', 35)">
                                 <h3><i class="fas fa-shopping-cart"></i></h3>
                             </div>
                         </div>
@@ -149,30 +164,32 @@
                 </div>
             </div>
 
-            <div tabindex="0" class="snkc sneaker-cont3" onclick="showProductDetail('cupcake')">
-                <img loading="lazy" class="sneaker-img" src="imgs/Cupcake.webp" alt="Cupcake">
-                <div class="sneakerDesc">
-                    <div class="sneaker-decor"></div>
-                    <div class="data-cont">
-                        <div class="sneakerName">
-                            <h2>Cupcake</h2>
-                            <div class="snk-class"><h3>Chocolate</h3></div>
-                        </div>
-                        <div class="btnBuy-cont">
-                            <div class="btnBuy" onclick="event.stopPropagation(); addToCart('Cupcake Chocolate', 3.5)">
-                                <h3><i class="fas fa-shopping-cart"></i></h3>
-                            </div>
-                        </div>
-                        <div class="sneakerSize">
-                            <h3>Seller Info</h3>
-                            <div class="sizes price-tag">RM3.50</div>
-                            <div class="sizes"><span>Blok B, Level 1</span></div>
-                        </div>
-                    </div>
+           <!-- Product 3: Cupcake -->
+<div tabindex="0" class="snkc sneaker-cont3" data-product="cupcake">
+    <img loading="lazy" class="sneaker-img" src="imgs/Cupcake.webp" alt="Cupcake">
+    <div class="sneakerDesc">
+        <div class="sneaker-decor"></div>
+        <div class="data-cont">
+            <div class="sneakerName">
+                <h2>Cupcake</h2>
+                <div class="snk-class"><h3>Chocolate</h3></div>
+            </div>
+            <div class="btnBuy-cont">
+                <div class="btnBuy" onclick="event.stopPropagation(); addToCart('Cupcake Chocolate', 3.5)">
+                    <h3><i class="fas fa-shopping-cart"></i></h3>
                 </div>
             </div>
+            <div class="sneakerSize">
+                <h3>Seller Info</h3>
+                <div class="sizes price-tag">RM3.50</div>
+                <div class="sizes"><span>Blok B, Level 1</span></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-            <div tabindex="0" class="snkc sneaker-cont4" onclick="showProductDetail('scrunchies')">
+            <!-- Product 4: Handmade Scrunchies -->
+            <div tabindex="0" class="snkc sneaker-cont4" data-product="scrunchies">
                 <img loading="lazy" class="sneaker-img" src="imgs/handmade.webp" alt="Handmade Scrunchies">
                 <div class="sneakerDesc">
                     <div class="sneaker-decor"></div>
@@ -182,7 +199,7 @@
                             <div class="snk-class"><h3>Scrunchies</h3></div>
                         </div>
                         <div class="btnBuy-cont">
-                            <div class="btnBuy" onclick="event.stopPropagation(); addToCart('Handmade Scrunchies', 8)">
+                            <div class="btnBuy" onclick="addToCart('Handmade Scrunchies', 8)">
                                 <h3><i class="fas fa-shopping-cart"></i></h3>
                             </div>
                         </div>
@@ -194,7 +211,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="scrollpage-cont"></div>
@@ -297,16 +313,16 @@
             <h2>Log in to Exclusive</h2>
             <p class="auth-sub">Enter your details below</p>
             <div class="auth-form">
-                <input type="email" class="auth-input" placeholder="Email or Phone Number" id="login-email">
+                <input type="email" class="auth-input" placeholder="Email" id="login-email">
                 <input type="password" class="auth-input" placeholder="Password" id="login-password">
-                <button class="btn-primary" onclick="doLogin()">Log In</button>
+                <button class="btn-primary" onclick="handleLogin()">Log In</button>
                 <div class="auth-links">
                     <a href="#" class="auth-link-forgot">Forgot Password?</a>
                 </div>
                 <div class="auth-divider"><span>or</span></div>
-                <button class="btn-google" onclick="doLogin()">
+                <button class="btn-google" onclick="handleGoogleLogin()">
                     <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/><path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z"/></svg>
-                    Sign up with Google
+                    Sign in with Google
                 </button>
                 <p class="auth-switch">Don't have an account? <a href="#" onclick="showPage('signup')">Sign Up</a></p>
             </div>
@@ -326,12 +342,12 @@
             <h2>Create an account</h2>
             <p class="auth-sub">Enter your details below</p>
             <div class="auth-form">
-                <input type="text" class="auth-input" placeholder="Name">
-                <input type="email" class="auth-input" placeholder="Email or Phone Number">
-                <input type="password" class="auth-input" placeholder="Password">
-                <button class="btn-primary" onclick="showPage('home')">Create Account</button>
+                <input type="text" class="auth-input" placeholder="Name" id="signup-name">
+                <input type="email" class="auth-input" placeholder="Email" id="signup-email">
+                <input type="password" class="auth-input" placeholder="Password" id="signup-password">
+                <button class="btn-primary" onclick="handleSignup()">Create Account</button>
                 <div class="auth-divider"><span>or</span></div>
-                <button class="btn-google" onclick="showPage('home')">
+                <button class="btn-google" onclick="handleGoogleLogin()">
                     <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/><path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z"/></svg>
                     Sign up with Google
                 </button>
@@ -362,7 +378,7 @@
             <div class="product-price-detail">
                 <span id="product-price">RM 5.00</span> / pack
             </div>
-            <p id="product-desc" class="product-desc-text">Homemade choc chip cookies, freshly baked every morning. Each pack contains 10 pieces. Can COD at Blok C lobby or anywhere in campus. DM for bulk order!</p>
+            <p id="product-desc" class="product-desc-text">Homemade choc chip cookies, freshly baked every morning.</p>
             <div class="product-meta">
                 <span class="meta-tag"><i class="fas fa-map-marker-alt"></i> <span id="product-blok">Blok C</span></span>
                 <span class="meta-tag"><i class="fas fa-check-circle"></i> Ready now</span>
@@ -387,7 +403,7 @@
                 </div>
             </div>
             <div class="product-actions">
-                <button class="btn-primary full-width" onclick="addToCart(currentProduct.name, currentProduct.price)">Add to Cart</button>
+                <button class="btn-primary full-width" id="product-detail-add-cart">Add to Cart</button>
                 <button class="btn-chat full-width" onclick="showPage('chat')"><i class="fas fa-comment"></i> Chat with seller</button>
             </div>
         </div>
@@ -395,27 +411,31 @@
 </div>
 
 <!-- ===== PAGE: CART ===== -->
-<div id="page-cart" class="page content-page">
+<div id="page-cart" class="page content-page" style="display: none;">
     <div class="breadcrumb">
         <a href="#" onclick="showPage('home')">Home</a> / <span>Cart</span>
     </div>
-    <div class="cart-container">
-        <div class="cart-header">
-            <span>Product</span>
-            <span>Price</span>
-            <span>Quantity</span>
-            <span>Subtotal</span>
+    
+    <h2 style="margin-bottom: 2rem; font-size: 2rem; color: var(--text);">Shopping Cart (<span id="cart-item-count">0</span>)</h2>
+    
+    <div id="cart-items">
+        <!-- Cart items will be inserted here -->
+    </div>
+    
+    <div class="cart-summary" style="margin-top: 2rem; padding: 1.5rem; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 1.2rem;">
+            <span style="font-weight: 600; color: var(--text);">Total:</span>
+            <strong id="cart-total-price" style="color: var(--primary); font-size: 1.8rem;">RM 0.00</strong>
         </div>
-        <div id="cart-items"></div>
-        <div class="cart-summary">
-            <div class="cart-total">
-                <span>Total: </span><strong id="cart-total-price">RM 0.00</strong>
-            </div>
-        </div>
-        <div class="cart-footer">
-            <button class="btn-outline" onclick="showPage('home')">← Return To Homepage</button>
-            <button class="btn-primary" onclick="updateCart()">Update Cart</button>
-        </div>
+    </div>
+    
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button class="btn-outline" onclick="showPage('home')" style="flex: 1; padding: 1rem; border: 2px solid var(--border); background: white; color: var(--text); border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: 600;">
+            ← Continue Shopping
+        </button>
+        <button class="btn-primary" onclick="checkout()" style="flex: 2; padding: 1rem; background: var(--primary); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: 600;">
+            Proceed to Checkout
+        </button>
     </div>
 </div>
 
@@ -429,23 +449,7 @@
                 <span class="online-dot"></span><span class="online-text">Online</span>
             </div>
         </div>
-        <div class="chat-messages" id="chat-messages">
-            <div class="msg received">
-                <p>Hi! I saw you're interested in my Chocolate Chip Cookies 🍪</p>
-            </div>
-            <div class="msg sent">
-                <p>Yes! Are they still available?</p>
-            </div>
-            <div class="msg received">
-                <p>Yes still ada! 5 packs left. You kat blok mana? Boleh COD anytime 😊</p>
-            </div>
-            <div class="msg sent">
-                <p>I'm at Blok E. Can we meet at the cafe?</p>
-            </div>
-            <div class="msg received">
-                <p>Boleh je! Petang ni free ke? Around 5pm?</p>
-            </div>
-        </div>
+        <div class="chat-messages" id="chat-messages"></div>
         <div class="chat-input-bar">
             <input type="text" id="chat-input" placeholder="Type a new message here" onkeypress="handleChatKey(event)">
             <button class="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
@@ -469,14 +473,9 @@
                 </ul>
             </div>
             <div class="sidebar-section">
-                <h4>My Orders</h4>
-                <ul>
-                    <li><a href="#">My Returns</a></li>
-                    <li><a href="#">My Cancellations</a></li>
-                </ul>
-            </div>
-            <div class="sidebar-section">
-                <h4><a href="#" onclick="showPage('wishlist')">My WishList</a></h4>
+                <button class="btn-outline full-width" onclick="handleLogout()" style="margin-top: 20px;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
             </div>
         </div>
         <div class="profile-content">
@@ -485,28 +484,22 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-input" value="Khairul">
+                        <input type="text" class="form-input" id="profile-first-name" placeholder="First Name">
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-input" value="Amir">
+                        <input type="text" class="form-input" id="profile-last-name" placeholder="Last Name">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="form-input" value="khairul@uitm.edu.my">
+                        <input type="email" class="form-input" id="profile-email" placeholder="Email" readonly>
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-input" value="Blok E, Level 3, UiTM Shah Alam">
+                        <input type="text" class="form-input" id="profile-address" placeholder="Your address">
                     </div>
-                </div>
-                <div class="form-group full">
-                    <label>Password Changes</label>
-                    <input type="password" class="form-input" placeholder="Current Password">
-                    <input type="password" class="form-input" placeholder="New Password" style="margin-top:10px">
-                    <input type="password" class="form-input" placeholder="Confirm New Password" style="margin-top:10px">
                 </div>
                 <div class="form-actions">
                     <button class="btn-outline" onclick="showPage('home')">Cancel</button>
@@ -522,245 +515,1221 @@
     <div class="wishlist-container">
         <div class="wishlist-header">
             <h2>Wishlist (<span id="wishlist-count">0</span>)</h2>
-            <button class="btn-outline" onclick="moveAllToCart()">Move All To Bag</button>
         </div>
         <div id="wishlist-items" class="wishlist-grid"></div>
     </div>
 </div>
 
-<!-- ===== TOAST NOTIFICATION ===== -->
-<div id="toast" class="toast"></div>
-
-<!-- ===== SCRIPTS ===== -->
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="rellax.min.js"></script>
-<script>
-    // Init parallax
-    try { var rellax = new Rellax('.rellax'); } catch(e) {}
-
-    // Mobile menu
-    $(document).ready(function () {
-        $('.menu-btn').click(function () {
-            $('.nav-cont').toggleClass('active')
-            $('.menu-btn').toggleClass('btn-active')
-            $('.menu-btn-active').toggleClass('close-active')
-            $('.ul1,.ul2,.ul3,.ul4,.ul5').toggleClass('active')
-        });
-        $('.ul-cont').click(function () {
-            $('.nav-cont').toggleClass('active')
-            $('.menu-btn').toggleClass('btn-active')
-            $('.menu-btn-active').toggleClass('close-active')
-            $('.ul1,.ul2,.ul3,.ul4,.ul5').toggleClass('active')
-        });
-    });
-
-    // ===== STATE =====
-    let cart = [
-        { name: 'Chocolate Chip Cookies', price: 5, qty: 1, img: 'imgs/chocolatechip.webp' },
-        { name: 'Cupcake Chocolate', price: 3.5, qty: 2, img: 'imgs/Cupcake.webp' }
-    ];
-    let wishlist = [];
-    let currentQty = 1;
-    let currentProduct = {};
-
-    const products = {
-        cookies: { name: 'Chocolate Chip Cookies', price: 5, img: 'imgs/chocolatechip.webp', category: 'food', blok: 'Blok C', desc: 'Homemade choc chip cookies, freshly baked every morning. Each pack contains 10 pieces. Can COD at Blok C lobby or anywhere in campus. DM for bulk order!', seller: 'Amirah Roslan', sellerBlok: 'Blok C, Level 2', sellerAvatar: 'A' },
-        bajukurung: { name: 'Baju Kurung Moden', price: 35, img: 'imgs/bajukurung.webp', category: 'fashion', blok: 'Blok A', desc: 'Baju Kurung Moden warna dusty pink. Size S-XL available. Bahan berkualiti, sesuai untuk formal atau casual. COD kat Blok A lobby.', seller: 'Sarah Izzati', sellerBlok: 'Blok A, Level 3', sellerAvatar: 'S' },
-        cupcake: { name: 'Cupcake Chocolate', price: 3.5, img: 'imgs/Cupcake.webp', category: 'food', blok: 'Blok B', desc: 'Homemade chocolate cupcakes dengan cream cheese frosting. Boleh order custom flavor. Minimum order 4 pcs. COD dalam campus.', seller: 'Nadia Hamdan', sellerBlok: 'Blok B, Level 1', sellerAvatar: 'N' },
-        scrunchies: { name: 'Handmade Scrunchies', price: 8, img: 'imgs/handmade.webp', category: 'accessories', blok: 'Blok D', desc: 'Handmade scrunchies with premium fabric. Pelbagai corak dan warna. 3 pcs per set. Sesuai untuk hantaran atau hadiah. COD available.', seller: 'Hana Zulaikha', sellerBlok: 'Blok D, Level 1', sellerAvatar: 'H' }
-    };
-
-    // ===== PAGE NAVIGATION =====
-    function showPage(page) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
-        const target = document.getElementById('page-' + page);
-        if (target) {
-            target.classList.add('active-page');
-            window.scrollTo(0, 0);
-        }
-        if (page === 'cart') renderCart();
-        if (page === 'wishlist') renderWishlist();
-    }
-
-    // ===== PRODUCT DETAIL =====
-    function showProductDetail(productKey) {
-        const p = products[productKey];
-        if (!p) return;
-        currentProduct = p;
-        currentQty = 1;
-        document.getElementById('product-title').textContent = p.name;
-        document.getElementById('product-name-bc').textContent = p.name.split(' ').slice(0,2).join(' ');
-        document.getElementById('product-category').textContent = p.category;
-        document.getElementById('product-price').textContent = 'RM ' + p.price.toFixed(2);
-        document.getElementById('product-img').src = p.img;
-        document.getElementById('product-img').alt = p.name;
-        document.getElementById('product-desc').textContent = p.desc;
-        document.getElementById('product-blok').textContent = p.blok;
-        document.getElementById('seller-name').textContent = p.seller;
-        document.getElementById('seller-blok').innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + p.sellerBlok;
-        document.getElementById('seller-avatar').textContent = p.sellerAvatar;
-        document.getElementById('qty-display').textContent = currentQty;
-        showPage('product');
-    }
-
-    function changeQty(delta) {
-        currentQty = Math.max(1, currentQty + delta);
-        document.getElementById('qty-display').textContent = currentQty;
-    }
-
-    // ===== CART =====
-    function addToCart(name, price) {
-        const existing = cart.find(i => i.name === name);
-        if (existing) {
-            existing.qty++;
-        } else {
-            const p = Object.values(products).find(p => p.name === name);
-            cart.push({ name, price, qty: 1, img: p ? p.img : '' });
-        }
-        updateCartBadge();
-        showToast('✓ Added to cart!');
-    }
-
-    function renderCart() {
-        const container = document.getElementById('cart-items');
-        if (cart.length === 0) {
-            container.innerHTML = '<div class="empty-state"><i class="fas fa-shopping-cart"></i><p>Your cart is empty</p></div>';
-            document.getElementById('cart-total-price').textContent = 'RM 0.00';
-            return;
-        }
-        let total = 0;
-        container.innerHTML = cart.map((item, i) => {
-            const sub = item.price * item.qty;
-            total += sub;
-            return `<div class="cart-row">
-                <div class="cart-product">
-                    <button class="remove-btn" onclick="removeFromCart(${i})"><i class="fas fa-times-circle"></i></button>
-                    <img src="${item.img}" alt="${item.name}">
-                    <span>${item.name}</span>
+<!-- ===== PAGE: CREATE PRODUCT ===== -->
+<div id="page-create-product" class="page content-page" style="display: none;">
+    <div class="profile-layout">
+        <div class="profile-sidebar">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> / <span>Sell Item</span>
+            </div>
+        </div>
+        <div class="profile-content">
+            <h2 class="profile-title">Create New Listing</h2>
+            <div class="profile-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Product Name *</label>
+                        <input type="text" class="form-input" id="product-name" placeholder="Product name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Price (RM) *</label>
+                        <input type="number" class="form-input" id="product-price" placeholder="5.00" step="0.01" min="0" required>
+                    </div>
                 </div>
-                <div class="cart-price">RM${item.price.toFixed(2)}</div>
-                <div class="cart-qty">
-                    <button onclick="cartQty(${i},-1)">▼</button>
-                    <span>${String(item.qty).padStart(2,'0')}</span>
-                    <button onclick="cartQty(${i},1)">▲</button>
+                <div class="form-group full">
+                    <label>Description *</label>
+                    <textarea class="form-input" id="product-desc" rows="4" placeholder="Describe your product..." required></textarea>
                 </div>
-                <div class="cart-subtotal">RM${sub.toFixed(2)}</div>
-            </div>`;
-        }).join('');
-        document.getElementById('cart-total-price').textContent = 'RM ' + total.toFixed(2);
-    }
-
-    function cartQty(i, delta) {
-        cart[i].qty = Math.max(1, cart[i].qty + delta);
-        renderCart();
-        updateCartBadge();
-    }
-
-    function removeFromCart(i) {
-        cart.splice(i, 1);
-        renderCart();
-        updateCartBadge();
-    }
-
-    function updateCart() { showToast('✓ Cart updated!'); }
-
-    function updateCartBadge() {
-        const total = cart.reduce((s, i) => s + i.qty, 0);
-        document.querySelector('.cart-badge').textContent = total;
-    }
-
-    // ===== WISHLIST =====
-    function addToWishlist() {
-        if (!currentProduct.name) return;
-        if (!wishlist.find(i => i.name === currentProduct.name)) {
-            wishlist.push({ ...currentProduct });
-            showToast('♥ Added to wishlist!');
-        } else {
-            showToast('Already in wishlist!');
-        }
-    }
-
-    function renderWishlist() {
-        document.getElementById('wishlist-count').textContent = wishlist.length;
-        const container = document.getElementById('wishlist-items');
-        if (wishlist.length === 0) {
-            container.innerHTML = '<div class="empty-state"><i class="far fa-heart"></i><p>Your wishlist is empty</p></div>';
-            return;
-        }
-        container.innerHTML = wishlist.map((item, i) => `
-            <div class="wishlist-card">
-                <button class="remove-wish" onclick="removeWishlist(${i})"><i class="fas fa-trash"></i></button>
-                <img src="${item.img}" alt="${item.name}">
-                <button class="btn-add-cart-wish" onclick="addToCart('${item.name}', ${item.price})">
-                    <i class="fas fa-shopping-cart"></i> Add To Cart
-                </button>
-                <div class="wish-info">
-                    <p class="wish-name">${item.name}</p>
-                    <p class="wish-blok">${item.sellerBlok}</p>
-                    <p class="wish-price">RM${item.price.toFixed(0)}</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Category *</label>
+                        <select class="form-input" id="product-category" required>
+                            <option value="">Select Category</option>
+                            <option value="food">Food & Snacks</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Stock *</label>
+                        <input type="number" class="form-input" id="product-stock" placeholder="10" min="1" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-outline" onclick="showPage('home')">Cancel</button>
+                    <button class="btn-primary" onclick="handleCreateProduct()">Create Listing</button>
                 </div>
             </div>
-        `).join('');
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<!-- ===== PAGE: BECOME SELLER ===== -->
+<div id="page-become-seller" class="page content-page" style="display: none;">
+    <div class="profile-layout">
+        <div class="profile-sidebar">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> / <span>Become a Seller</span>
+            </div>
+            <div class="sidebar-section">
+                <h4>Seller Application</h4>
+                <p style="padding: 10px; font-size: 14px; color: #666;">
+                    Fill in the form below to apply as a seller. Admin will review your application within 24-48 hours.
+                </p>
+            </div>
+            <div class="sidebar-section" id="seller-status-section" style="display: none;">
+                <h4>Your Application Status</h4>
+                <div id="seller-status-content" style="padding: 10px;"></div>
+            </div>
+        </div>
+        <div class="profile-content">
+            <h2 class="profile-title">Apply to Become a Seller</h2>
+            <div id="seller-form-container">
+                <div class="profile-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" class="form-input" id="seller-fullname" placeholder="Your full name" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" class="form-input" id="seller-email" placeholder="Your email" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Student ID (Matric No.) *</label>
+                            <input type="text" class="form-input" id="seller-student-id" placeholder="e.g., 2021123456" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" class="form-input" id="seller-phone" placeholder="e.g., 0123456789" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Block *</label>
+                            <select class="form-input" id="apply-seller-blok" required>
+    <option value="">Select Block</option>
+    <option value="Blok A">Blok A</option>
+    <option value="Blok B">Blok B</option>
+    <option value="Blok C">Blok C</option>
+    <option value="Blok D">Blok D</option>
+    <option value="Blok E">Blok E</option>
+</select>
+
+<select class="form-input" id="apply-seller-level" required>
+    <option value="">Select Level</option>
+    <option value="1">Level 1</option>
+    <option value="2">Level 2</option>
+    <option value="3">Level 3</option>
+    <option value="4">Level 4</option>
+    <option value="5">Level 5</option>
+</select>
+
+<select class="form-input" id="apply-seller-category" required>
+    <option value="">Select Category</option>
+    <option value="food">Food & Snacks</option>
+    <option value="fashion">Fashion & Clothing</option>
+    <option value="accessories">Accessories</option>
+    <option value="books">Books & Notes</option>
+    <option value="electronics">Electronics</option>
+    <option value="others">Others</option>
+</select>
+                    </div>
+                    
+                    <div class="form-group full">
+                        <label>Why do you want to become a seller? *</label>
+                        <textarea class="form-input" id="seller-reason" rows="4" placeholder="Tell us why you want to sell on JomJual..." required style="resize: vertical;"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn-outline" onclick="showPage('home')">Cancel</button>
+                        <button class="btn-primary" onclick="submitSellerRequest()">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE: ADMIN PANEL ===== -->
+<div id="page-admin" class="page content-page" style="display: none;">
+    <div class="profile-layout">
+        <div class="profile-sidebar">
+            <div class="breadcrumb">
+                <a href="#" onclick="showPage('home')">Home</a> / <span>Admin Panel</span>
+            </div>
+            <div class="sidebar-section">
+                <h4>Admin Menu</h4>
+                <ul>
+                    <li class="active"><a href="#" onclick="showAdminTab('requests')">Seller Requests</a></li>
+                    <li><a href="#" onclick="showAdminTab('users')">All Users</a></li>
+                    <li><a href="#" onclick="showAdminTab('products')">All Products</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="profile-content">
+            <h2 class="profile-title">Admin Panel</h2>
+            
+            <!-- Seller Requests Tab -->
+            <div id="admin-tab-requests">
+                <h3 style="margin-bottom: 1rem;">Pending Seller Requests</h3>
+                <div id="admin-requests-list"></div>
+            </div>
+            
+            <!-- Users Tab -->
+            <div id="admin-tab-users" style="display: none;">
+                <h3 style="margin-bottom: 1rem;">All Users</h3>
+                <div id="admin-users-list"></div>
+            </div>
+            
+            <!-- Products Tab -->
+            <div id="admin-tab-products" style="display: none;">
+                <h3 style="margin-bottom: 1rem;">All Products</h3>
+                <div id="admin-products-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module">
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+    import { db } from './js/firebase.js';
+    import { createProduct, updateProduct } from './js/firestore.js';
+    import { uploadMultipleImages } from './js/storage.js';
+
+    // Make functions globally accessible
+window.showPage = window.showPage || function(pageName) {
+    // Your existing showPage function code
+    document.querySelectorAll('.page').forEach(page => {
+        page.style.display = 'none';
+        page.classList.remove('active-page');
+    });
+    
+    const targetPage = document.getElementById(`page-${pageName}`);
+    if (targetPage) {
+        targetPage.style.display = 'block';
+        targetPage.classList.add('active-page');
+        window.scrollTo(0, 0);
+        
+        if (pageName === 'profile') loadUserProfile();
+        if (pageName === 'cart') window.displayCartItems();
+        if (pageName === 'wishlist') displayWishlistItems();
+    }
+};
+
+window.addToCart = window.addToCart || function(productName, price) {
+    // This will use your existing addToCart function if it exists
+};
+
+    let currentProduct = null;
+    const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
+
+    // ===== PAGE NAVIGATION =====
+window.showPage = function(pageName) {
+    console.log("Showing page:", pageName);
+    
+    document.querySelectorAll('.page').forEach(page => {
+        page.style.display = 'none';
+        page.classList.remove('active-page');
+    });
+    
+    const targetPage = document.getElementById(`page-${pageName}`);
+    if (targetPage) {
+        targetPage.style.display = 'block';
+        targetPage.classList.add('active-page');
+        window.scrollTo(0, 0);
+        
+        if (pageName === 'profile' && window.loadUserProfile) window.loadUserProfile();
+        if (pageName === 'cart' && window.displayCartItems) window.displayCartItems();
+        if (pageName === 'wishlist' && window.displayWishlistItems) window.displayWishlistItems();
+        if (pageName === 'admin' && window.loadAdminRequests) window.loadAdminRequests();
+    } else {
+        console.error("Page not found:", pageName);
+    }
+};
+
+    window.showToast = function(message) {
+        alert(message);
+    };
+
+    // ===== AUTH FUNCTIONS =====
+    window.handleSignup = async () => {
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+        const name = document.getElementById('signup-name').value;
+        if (!email || !password || !name) {
+            showToast('× Sila isi semua maklumat!');
+            return;
+        }
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            await setDoc(doc(db, "users", user.uid), {
+                uid: user.uid, fullName: name, email: email, role: "seller",
+                createdAt: serverTimestamp(), updatedAt: serverTimestamp(),
+                isActive: true, rating: 0, totalSales: 0
+            });
+            showToast('✓ Akaun berjaya dicipta!');
+            showPage('home');
+        } catch (error) {
+            showToast('× Ralat: ' + error.message);
+        }
+    };
+
+    window.handleLogin = async () => {
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        if (!email || !password) {
+            showToast('× Sila isi email dan password!');
+            return;
+        }
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            showToast('✓ Log masuk berjaya!');
+            showPage('home');
+        } catch (error) {
+            showToast('× Ralat: ' + error.message);
+        }
+    };
+
+    window.handleGoogleLogin = async () => {
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            const user = result.user;
+            await setDoc(doc(db, "users", user.uid), {
+                fullName: user.displayName, email: user.email,
+                createdAt: new Date()
+            }, { merge: true });
+            showToast('✓ Google login berjaya!');
+            showPage('home');
+        } catch (error) {
+            showToast('× Ralat: ' + error.message);
+        }
+    };
+
+    window.handleLogout = async () => {
+        try {
+            await signOut(auth);
+            showToast('✓ Berjaya log keluar!');
+            showPage('home');
+        } catch (error) {
+            showToast('× Ralat: ' + error.message);
+        }
+    };
+
+    window.loadUserProfile = async function() {
+        const user = auth.currentUser;
+        if (!user) {
+            showToast('× Sila log masuk dahulu!');
+            showPage('login');
+            return;
+        }
+        try {
+            const userDoc = await getDoc(doc(db, "users", user.uid));
+            let firstName = "", lastName = "", email = user.email || "", address = "";
+            if (userDoc.exists()) {
+                const userData = userDoc.data();
+                const fullName = userData.fullName || user.displayName || "";
+                const nameParts = fullName.split(' ');
+                firstName = nameParts[0] || "";
+                lastName = nameParts.slice(1).join(' ') || "";
+                email = userData.email || email;
+                address = userData.address || "";
+            }
+            document.getElementById('profile-first-name').value = firstName;
+            document.getElementById('profile-last-name').value = lastName;
+            document.getElementById('profile-email').value = email;
+            document.getElementById('profile-address').value = address;
+        } catch (error) {
+            showToast('× Ralat: ' + error.message);
+        }
+    };
+
+    window.saveProfile = async function() {
+        const user = auth.currentUser;
+        if (!user) return;
+        const firstName = document.getElementById('profile-first-name').value;
+        const lastName = document.getElementById('profile-last-name').value;
+        const address = document.getElementById('profile-address').value;
+        try {
+            await setDoc(doc(db, "users", user.uid), {
+                firstName, lastName,
+                fullName: `${firstName} ${lastName}`,
+                email: user.email, address,
+                updatedAt: new Date()
+            }, { merge: true });
+            showToast('✓ Profil berjaya dikemaskini!');
+        } catch (error) {
+            showToast('× Ralat: ' + error.message);
+        }
+    };
+
+   window.handleCreateProduct = async () => {
+    const user = auth.currentUser;
+    if (!user) {
+        showToast('× Sila log masuk dahulu!');
+        showPage('login');
+        return;
     }
 
-    function removeWishlist(i) {
-        wishlist.splice(i, 1);
-        renderWishlist();
+    // ===== CHECK IF USER IS A SELLER OR ADMIN =====
+    try {
+        const { doc, getDoc } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        const role = userDoc.exists() ? (userDoc.data().role || 'buyer') : 'buyer';
+        
+        if (role !== 'seller' && role !== 'admin') {
+            showToast('× Anda perlu menjadi seller untuk menjual produk! Sila apply dahulu.');
+            showPage('become-seller');
+            return;
+        }
+    } catch (error) {
+        console.error(error);
+        showToast('× Ralat semak role: ' + error.message);
+        return;
     }
 
-    function moveAllToCart() {
-        wishlist.forEach(item => addToCart(item.name, item.price));
-        wishlist = [];
-        renderWishlist();
-        showToast('✓ Moved all to cart!');
+    // Get form values with debug
+    const name = document.getElementById('product-name').value.trim();
+    const priceInput = document.getElementById('product-price');
+    const price = priceInput ? parseFloat(priceInput.value) : 0;
+    const description = document.getElementById('product-desc').value.trim();
+    const categorySelect = document.getElementById('product-category');
+    const category = categorySelect ? categorySelect.value : '';
+    const stockInput = document.getElementById('product-stock');
+    const stock = stockInput ? parseInt(stockInput.value) : 0;
+    
+    // Debug log
+    console.log('Product form values:', {
+        name,
+        price,
+        description,
+        category,
+        stock
+    });
+    
+    if (!name) {
+        showToast('× Sila isi nama produk!');
+        return;
+    }
+    
+    if (!price || price <= 0) {
+        showToast('× Sila isi harga yang sah!');
+        return;
+    }
+    
+    if (!description) {
+        showToast('× Sila isi deskripsi!');
+        return;
+    }
+    
+    if (!category) {
+        showToast('× Sila pilih kategori!');
+        return;
+    }
+    
+    if (!stock || stock <= 0) {
+        showToast('× Sila isi stok yang sah!');
+        return;
+    }
+    
+    try {
+        await createProduct({
+            sellerId: user.uid, 
+            sellerName: user.displayName || "User",
+            name, description, price, category, stock,
+            status: 'available', images: []
+        });
+        showToast('✓ Produk berjaya dicipta!');
+        showPage('home');
+    } catch (error) {
+        showToast('× Ralat: ' + error.message);
+    }
+};
+
+  // ===== CART MANAGEMENT =====
+let cart = JSON.parse(localStorage.getItem('jomjual_cart')) || [];
+
+function updateCartBadge() {
+    const cartBadge = document.querySelector('.cart-badge');
+    const cartItemCount = document.getElementById('cart-item-count');
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    if (cartBadge) cartBadge.textContent = totalItems;
+    if (cartItemCount) cartItemCount.textContent = cart.length;
+}
+
+window.addToCart = function(productName, price) {
+    const user = auth.currentUser;
+    if (!user) {
+        showToast('× Sila log masuk dahulu!');
+        showPage('login');
+        return;
+    }
+    const existingItem = cart.find(item => item.name === productName);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name: productName, price, quantity: 1 });
+    }
+    localStorage.setItem('jomjual_cart', JSON.stringify(cart));
+    updateCartBadge();
+    showToast(`✓ ${productName} ditambah ke cart!`);
+    if (document.getElementById('page-cart').style.display === 'block') {
+        window.displayCartItems();
+    }
+};
+
+window.removeFromCart = function(productName) {
+    cart = cart.filter(item => item.name !== productName);
+    localStorage.setItem('jomjual_cart', JSON.stringify(cart));
+    updateCartBadge();
+    window.displayCartItems();
+    showToast('✓ Item dikeluarkan!');
+};
+
+window.updateCartQuantity = function(productName, change) {
+    const item = cart.find(item => item.name === productName);
+    
+    if (item) {
+        item.quantity += change;
+        
+        if (item.quantity <= 0) {
+            cart = cart.filter(i => i.name !== productName);
+        }
+        
+        localStorage.setItem('jomjual_cart', JSON.stringify(cart));
+        window.displayCartItems();
+        updateCartBadge();
+    }
+};
+
+window.displayCartItems = function() {
+    const container = document.getElementById('cart-items');
+    const totalPriceEl = document.getElementById('cart-total-price');
+    const itemCountEl = document.getElementById('cart-item-count');
+
+    if (!container) return;
+
+    // Force reload from localStorage
+    cart = JSON.parse(localStorage.getItem('jomjual_cart')) || [];
+
+    if (cart.length === 0) {
+        container.innerHTML = `
+            <div style="text-align: center; padding: 3rem; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Cart anda kosong</p>
+                <button onclick="showPage('home')" style="margin-top: 1rem; padding: 0.8rem 2rem; background: var(--primary); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">
+                    Start Shopping
+                </button>
+            </div>
+        `;
+        if (totalPriceEl) totalPriceEl.textContent = 'RM 0.00';
+        if (itemCountEl) itemCountEl.textContent = '0';
+        return;
+    }
+
+    let total = 0;
+    let html = '';
+
+    cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        html += `
+            <div style="display: flex; align-items: center; padding: 1.2rem; margin-bottom: 1rem; background: white; border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div style="flex: 2; font-weight: 600; color: var(--text);">${item.name}</div>
+                <div style="flex: 1; color: var(--text-muted);">RM ${item.price.toFixed(2)}</div>
+                <div style="flex: 1; display: flex; align-items: center; gap: 0.5rem;">
+                    <button onclick="updateCartQuantity('${item.name}', -1)" style="width: 2rem; height: 2rem; border: 1px solid var(--border); background: white; cursor: pointer; border-radius: 4px; font-size: 1rem;">-</button>
+                    <span style="min-width: 2rem; text-align: center; font-weight: 600;">${item.quantity}</span>
+                    <button onclick="updateCartQuantity('${item.name}', 1)" style="width: 2rem; height: 2rem; border: 1px solid var(--border); background: white; cursor: pointer; border-radius: 4px; font-size: 1rem;">+</button>
+                </div>
+                <div style="flex: 1; font-weight: 600; color: var(--primary);">RM ${subtotal.toFixed(2)}</div>
+                <div style="flex: 0.5;">
+                    <button onclick="removeFromCart('${item.name}')" style="padding: 0.5rem; background: #fee2e2; color: #dc2626; border: none; border-radius: 4px; cursor: pointer;">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+
+    if (totalPriceEl) totalPriceEl.textContent = `RM ${total.toFixed(2)}`;
+    if (itemCountEl) itemCountEl.textContent = cart.length;
+};
+
+window.checkout = function() {
+    if (cart.length === 0) {
+        showToast('× Cart kosong!');
+        return;
+    }
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    showToast(`✓ Order berjaya! Total: RM ${total.toFixed(2)}`);
+    cart = [];
+    localStorage.setItem('jomjual_cart', JSON.stringify(cart));
+    updateCartBadge();
+    window.displayCartItems();
+    setTimeout(() => showPage('home'), 1500);
+};
+
+    // ===== PRODUCT DETAIL =====
+    window.showProductDetail = function(productId) {
+        const products = {
+            'cookies': { name: 'Chocolate Chip Cookies', price: 5.00, category: 'food', description: 'Homemade choc chip cookies.', blok: 'Blok C', level: '2', image: 'imgs/chocolatechip.webp', seller: 'Amirah Roslan' },
+            'bajukurung': { name: 'Baju Kurung Moden', price: 35.00, category: 'fashion', description: 'Baju kurung moden.', blok: 'Blok A', level: '3', image: 'imgs/bajukurung.webp', seller: 'Siti Aminah' },
+            'cupcake': { name: 'Cupcake Chocolate', price: 3.50, category: 'food', description: 'Cupcake chocolate moist.', blok: 'Blok B', level: '1', image: 'imgs/Cupcake.webp', seller: 'Nurul Huda' },
+            'scrunchies': { name: 'Handmade Scrunchies', price: 8.00, category: 'accessories', description: 'Handmade scrunchies.', blok: 'Blok D', level: '1', image: 'imgs/handmade.webp', seller: 'Aisyah Rahman' }
+        };
+        const product = products[productId];
+        if (!product) return;
+        currentProduct = product;
+        document.getElementById('product-img').src = product.image;
+        document.getElementById('product-title').textContent = product.name;
+        document.getElementById('product-price').textContent = `RM ${product.price.toFixed(2)}`;
+        document.getElementById('product-desc').textContent = product.description;
+        document.getElementById('product-blok').textContent = product.blok;
+        document.getElementById('product-category').textContent = product.category;
+        document.getElementById('product-name-bc').textContent = product.name;
+        document.getElementById('seller-name').textContent = product.seller;
+        showPage('product');
+    };
+
+    let currentQty = 1;
+    window.changeQty = function(change) {
+        currentQty += change;
+        if (currentQty < 1) currentQty = 1;
+        document.getElementById('qty-display').textContent = currentQty;
+    };
+
+    window.addToWishlist = function() {
+        if (!currentProduct) return;
+        showToast('✓ Ditambah ke wishlist!');
+    };
+
+    function displayWishlistItems() {
+        const container = document.getElementById('wishlist-items');
+        if (!container) return;
+        container.innerHTML = '<p style="text-align: center; padding: 40px;">Wishlist anda kosong</p>';
     }
 
     // ===== CHAT =====
-    function sendMessage() {
+    window.sendMessage = function() {
         const input = document.getElementById('chat-input');
-        const msg = input.value.trim();
-        if (!msg) return;
-        const container = document.getElementById('chat-messages');
-        const div = document.createElement('div');
-        div.className = 'msg sent';
-        div.innerHTML = `<p>${msg}</p>`;
-        container.appendChild(div);
-        container.scrollTop = container.scrollHeight;
+        const messages = document.getElementById('chat-messages');
+        if (!input || !messages || !input.value.trim()) return;
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'msg sent';
+        msgDiv.innerHTML = `<p>${input.value}</p>`;
+        messages.appendChild(msgDiv);
         input.value = '';
-        setTimeout(() => {
-            const reply = document.createElement('div');
-            reply.className = 'msg received';
-            reply.innerHTML = '<p>Ok noted! 😊</p>';
-            container.appendChild(reply);
-            container.scrollTop = container.scrollHeight;
-        }, 1000);
-    }
+        messages.scrollTop = messages.scrollHeight;
+    };
 
-    function handleChatKey(e) {
-        if (e.key === 'Enter') sendMessage();
-    }
+    window.handleChatKey = function(event) {
+        if (event.key === 'Enter') sendMessage();
+    };
 
-    // ===== AUTH =====
-    function doLogin() {
+    // ===== SINGLE EVENT LISTENER FOR PRODUCT CARDS =====
+    document.addEventListener('DOMContentLoaded', () => {
+        // Update badges
+        updateCartBadge();
+        
+        // Product detail add to cart button
+        const addCartBtn = document.getElementById('product-detail-add-cart');
+        if (addCartBtn) {
+            addCartBtn.addEventListener('click', () => {
+                if (currentProduct) {
+                    addToCart(currentProduct.name, currentProduct.price);
+                }
+            });
+        }
+
+       // ===== ROLE-BASED UI =====
+async function updateUIBasedOnRole() {
+    const user = auth.currentUser;
+    
+    // Get button references
+    const becomeSellerBtn = document.getElementById('nav-become-seller');
+    const adminBtn = document.getElementById('nav-admin');
+    const sellBtn = document.getElementById('nav-sell');
+    
+    if (!user) {
+        // Hide all role-based buttons when logged out
+        if (becomeSellerBtn) becomeSellerBtn.style.display = 'none';
+        if (adminBtn) adminBtn.style.display = 'none';
+        if (sellBtn) sellBtn.style.display = 'none';
+        return;
+    }
+    
+    try {
+        const { doc, getDoc } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        const role = userDoc.exists() ? (userDoc.data().role || 'buyer') : 'buyer';
+        
+        // Hide all buttons first
+        if (becomeSellerBtn) becomeSellerBtn.style.display = 'none';
+        if (adminBtn) adminBtn.style.display = 'none';
+        if (sellBtn) sellBtn.style.display = 'none';
+        
+        // Show based on role
+        if (role === 'admin') {
+            if (becomeSellerBtn) becomeSellerBtn.style.display = 'flex';
+            if (adminBtn) adminBtn.style.display = 'flex';
+            if (sellBtn) sellBtn.style.display = 'flex';
+        } else if (role === 'seller') {
+            if (sellBtn) sellBtn.style.display = 'flex';
+        } else {
+            // buyer
+            if (becomeSellerBtn) becomeSellerBtn.style.display = 'flex';
+        }
+        
+        // Check seller request status for buyers
+        if (role === 'buyer') {
+            await checkSellerRequestStatus();
+        }
+    } catch (error) {
+        console.error("Error checking role:", error);
+    }
+}
+// 2. THEN: Call it in onAuthStateChanged
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        console.log("User is logged in:", user.email);
+        
+        // Pre-fill seller form
+        const sellerFullname = document.getElementById('seller-fullname');
+        const sellerEmail = document.getElementById('seller-email');
+        if (sellerFullname) sellerFullname.value = user.displayName || '';
+        if (sellerEmail) sellerEmail.value = user.email || '';
+        
+        // Update UI based on role
+        await updateUIBasedOnRole();
+    } else {
+        console.log("User is logged out");
+        // Hide buttons when logged out
+        const becomeSellerBtn = document.getElementById('nav-become-seller');
+        const adminBtn = document.getElementById('nav-admin');
+        const sellBtn = document.getElementById('nav-sell');
+        
+        if (becomeSellerBtn) becomeSellerBtn.style.display = 'none';
+        if (adminBtn) adminBtn.style.display = 'none';
+        if (sellBtn) sellBtn.style.display = 'none';
+    }
+});
+        // Product card clicks - ONLY ONE LISTENER
+        const productCards = document.querySelectorAll('.snkc');
+        productCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Check if clicked on cart button - if yes, DO NOTHING (let inline onclick handle it)
+                if (e.target.closest('.btnBuy')) {
+                    return;
+                }
+                // Otherwise, navigate to product detail
+                const productId = this.getAttribute('data-product');
+                if (productId) {
+                    showProductDetail(productId);
+                }
+            });
+        });
+    });
+
+    onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        console.log("User is logged in:", user.email);
+        
+        const sellerFullname = document.getElementById('seller-fullname');
+        const sellerEmail = document.getElementById('seller-email');
+        if (sellerFullname) sellerFullname.value = user.displayName || '';
+        if (sellerEmail) sellerEmail.value = user.email || '';
+        
+        await updateUIBasedOnRole();
+    } else {
+        console.log("User is logged out");
+        const becomeSellerBtn = document.getElementById('nav-become-seller');
+        const adminBtn = document.getElementById('nav-admin');
+        const sellBtn = document.getElementById('nav-sell');
+        
+        if (becomeSellerBtn) becomeSellerBtn.style.display = 'none';
+        if (adminBtn) adminBtn.style.display = 'none';
+        if (sellBtn) sellBtn.style.display = 'none';
+    }
+});
+
+    // Make cart functions globally accessible
+window.displayCartItems = displayCartItems;
+window.checkout = checkout;
+
+// ===== SELLER REQUEST SYSTEM =====
+
+window.submitSellerRequest = async function() {
+    const user = auth.currentUser;
+    if (!user) {
+        showToast('× Sila log masuk dahulu!');
+        showPage('login');
+        return;
+    }
+    
+    // Get all form values with NEW IDs
+    const studentId = document.getElementById('seller-student-id').value.trim();
+    const phone = document.getElementById('seller-phone').value.trim();
+    const blok = document.getElementById('apply-seller-blok').value;
+    const level = document.getElementById('apply-seller-level').value;
+    const category = document.getElementById('apply-seller-category').value;
+    const reason = document.getElementById('seller-reason').value.trim();
+    
+    // Debug
+    console.log('Form values:', { studentId, phone, blok, level, category, reason });
+    
+    // Validation
+    if (!studentId) { showToast('× Sila isi Student ID!'); return; }
+    if (!phone) { showToast('× Sila isi nombor telefon!'); return; }
+    if (!blok) { showToast('× Sila pilih blok!'); return; }
+    if (!level) { showToast('× Sila pilih level!'); return; }
+    if (!category) { showToast('× Sila pilih kategori!'); return; }
+    if (!reason) { showToast('× Sila isi sebab!'); return; }
+    if (studentId.length < 6) { showToast('× Student ID tidak sah!'); return; }
+    
+    try {
+        const { collection, addDoc, serverTimestamp, query, where, getDocs } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        // Check if user already has a pending request
+        const requestsRef = collection(db, "sellerRequests");
+        const q = query(requestsRef, 
+            where("userId", "==", user.uid),
+            where("status", "==", "pending")
+        );
+        const existing = await getDocs(q);
+        
+        if (!existing.empty) {
+            showToast('× Anda sudah mempunyai permohonan yang sedang diproses!');
+            return;
+        }
+        
+        // Add new request
+        await addDoc(collection(db, "sellerRequests"), {
+            userId: user.uid,
+            userName: user.displayName || document.getElementById('seller-fullname').value,
+            userEmail: user.email,
+            studentId: studentId,
+            phone: phone,
+            blok: blok,
+            level: level,
+            category: category,
+            reason: reason,
+            status: "pending",
+            createdAt: serverTimestamp(),
+            reviewedAt: null,
+            reviewedBy: null,
+            reviewNote: ""
+        });
+        
+        showToast('✓ Application successfully submitted! The admin will review it within 24-48 hours.');
         showPage('home');
-        showToast('✓ Logged in successfully!');
+    } catch (error) {
+        console.error("Error submitting request:", error);
+        showToast('× Ralat: ' + error.message);
     }
+};
 
-    function saveProfile() {
-        showToast('✓ Profile saved!');
+// Check user's seller request status
+async function checkSellerRequestStatus() {
+    const user = auth.currentUser;
+    if (!user) return;
+    
+    try {
+        const { collection, query, where, getDocs, orderBy } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        const requestsRef = collection(db, "sellerRequests");
+        const q = query(requestsRef, where("userId", "==", user.uid));
+        const snapshot = await getDocs(q);
+        
+        const statusSection = document.getElementById('seller-status-section');
+        const statusContent = document.getElementById('seller-status-content');
+        
+        if (snapshot.empty) {
+            statusSection.style.display = 'none';
+            return;
+        }
+        
+        let latestRequest = null;
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            if (!latestRequest || data.createdAt > latestRequest.createdAt) {
+                latestRequest = data;
+            }
+        });
+        
+        if (latestRequest) {
+            statusSection.style.display = 'block';
+            let statusHtml = '';
+            
+            if (latestRequest.status === 'pending') {
+                statusHtml = `
+                    <div style="padding: 1rem; background: #fef3c7; border-radius: 6px; border-left: 4px solid #f59e0b;">
+                        <strong style="color: #92400e;">⏳ Pending</strong>
+                        <p style="font-size: 13px; color: #78350f; margin-top: 5px;">
+                            Your application is currently being reviewed by the admin.
+                        </p>
+                    </div>
+                `;
+            } else if (latestRequest.status === 'approved') {
+                statusHtml = `
+                    <div style="padding: 1rem; background: #dcfce7; border-radius: 6px; border-left: 4px solid #22c55e;">
+                        <strong style="color: #166534;">✓ Approved</strong>
+                        <p style="font-size: 13px; color: #14532d; margin-top: 5px;">
+                            Tahniah! Anda kini seorang seller.
+                        </p>
+                    </div>
+                `;
+            } else if (latestRequest.status === 'rejected') {
+                statusHtml = `
+                    <div style="padding: 1rem; background: #fee2e2; border-radius: 6px; border-left: 4px solid #ef4444;">
+                        <strong style="color: #991b1b;">✗ Rejected</strong>
+                        <p style="font-size: 13px; color: #7f1d1d; margin-top: 5px;">
+                            ${latestRequest.reviewNote || 'Permohonan ditolak.'}
+                        </p>
+                        <button onclick="showPage('become-seller')" style="margin-top: 10px; padding: 5px 15px; background: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 13px;">
+                            Apply Again
+                        </button>
+                    </div>
+                `;
+            }
+            
+            statusContent.innerHTML = statusHtml;
+        }
+    } catch (error) {
+        console.error("Error checking seller status:", error);
     }
+}
 
-    // ===== TOAST =====
-    function showToast(msg) {
-        const toast = document.getElementById('toast');
-        toast.textContent = msg;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2500);
+
+// ===== ADMIN PANEL FUNCTIONS =====
+
+window.showAdminTab = function(tabName) {
+    document.getElementById('admin-tab-requests').style.display = tabName === 'requests' ? 'block' : 'none';
+    document.getElementById('admin-tab-users').style.display = tabName === 'users' ? 'block' : 'none';
+    document.getElementById('admin-tab-products').style.display = tabName === 'products' ? 'block' : 'none';
+    
+    if (tabName === 'requests') window.loadAdminRequests();
+    if (tabName === 'users') window.loadAdminUsers();
+    if (tabName === 'products') window.loadAdminProducts();
+};
+
+window.loadAdminRequests = async function() {
+    console.log("🔍 loadAdminRequests called");
+    
+    try {
+        const { collection, getDocs, query, orderBy } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        console.log("✓ Firestore imported");
+        
+        const requestsRef = collection(db, "sellerRequests");
+        const q = query(requestsRef, orderBy("createdAt", "desc"));
+        const snapshot = await getDocs(q);
+        
+        console.log("✓ Snapshot retrieved, size:", snapshot.size);
+        
+        const container = document.getElementById('admin-requests-list');
+        if (!container) {
+            console.error("❌ Container 'admin-requests-list' NOT found!");
+            return;
+        }
+        console.log("✓ Container found");
+        
+        if (snapshot.empty) {
+            console.log("⚠️ No seller requests found");
+            container.innerHTML = '<p style="text-align: center; padding: 2rem; color: var(--text-muted);">Tiada permohonan seller.</p>';
+            return;
+        }
+        
+        console.log("✓ Rendering", snapshot.size, "requests");
+        let html = '';
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            console.log("Processing request:", data.userName);
+            
+            const createdAt = data.createdAt?.toDate ? data.createdAt.toDate().toLocaleDateString('ms-MY') : 'Unknown';
+            
+            let statusBadge = '';
+            let actionButtons = '';
+            
+            if (data.status === 'pending') {
+                statusBadge = '<span style="padding: 4px 10px; background: #fef3c7; color: #92400e; border-radius: 12px; font-size: 12px; font-weight: 600;">Pending</span>';
+                actionButtons = `
+                    <button onclick="window.reviewSellerRequest('${doc.id}', 'approved')" style="padding: 6px 12px; background: #22c55e; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; margin-right: 5px;">
+                        ✓ Approve
+                    </button>
+                    <button onclick="window.promptRejectRequest('${doc.id}')" style="padding: 6px 12px; background: #ef4444; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 13px;">
+                        ✗ Reject
+                    </button>
+                `;
+            } else if (data.status === 'approved') {
+                statusBadge = '<span style="padding: 4px 10px; background: #dcfce7; color: #166534; border-radius: 12px; font-size: 12px; font-weight: 600;">Approved</span>';
+            } else {
+                statusBadge = '<span style="padding: 4px 10px; background: #fee2e2; color: #991b1b; border-radius: 12px; font-size: 12px; font-weight: 600;">Rejected</span>';
+            }
+            
+            html += `
+                <div style="padding: 1.2rem; margin-bottom: 1rem; background: white; border: 1px solid var(--border); border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                        <div>
+                            <strong style="font-size: 1.1rem;">${data.userName}</strong>
+                            <span style="margin-left: 10px; color: var(--text-muted); font-size: 0.9rem;">${data.userEmail}</span>
+                        </div>
+                        ${statusBadge}
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+                        <div><strong>Student ID:</strong> ${data.studentId}</div>
+                        <div><strong>Phone:</strong> ${data.phone}</div>
+                        <div><strong>Block:</strong> ${data.blok} Level ${data.level}</div>
+                        <div><strong>Category:</strong> ${data.category}</div>
+                        <div><strong>Applied:</strong> ${createdAt}</div>
+                    </div>
+                    <div style="padding: 0.8rem; background: var(--light); border-radius: 6px; margin-bottom: 0.8rem;">
+                        <strong>Reason:</strong> ${data.reason}
+                    </div>
+                    ${actionButtons}
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+        console.log("✓ Admin requests rendered successfully");
+    } catch (error) {
+        console.error("❌ Error in loadAdminRequests:", error);
     }
+};
 
-    // Init
-    updateCartBadge();
+window.reviewSellerRequest = async function(requestId, decision) {
+    const user = auth.currentUser;
+    if (!user) return;
+    
+    try {
+        const { doc, updateDoc, serverTimestamp, getDoc } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        const requestDoc = await getDoc(doc(db, "sellerRequests", requestId));
+        const requestData = requestDoc.data();
+        
+        await updateDoc(doc(db, "sellerRequests", requestId), {
+            status: decision,
+            reviewedAt: serverTimestamp(),
+            reviewedBy: user.uid,
+            reviewNote: decision === 'approved' ? 'Approved by admin' : 'Rejected by admin'
+        });
+        
+        if (decision === 'approved') {
+            await updateDoc(doc(db, "users", requestData.userId), {
+                role: "seller",
+                blok: requestData.blok,
+                level: requestData.level,
+                phone: requestData.phone,
+                studentId: requestData.studentId,
+                updatedAt: serverTimestamp()
+            });
+        }
+        
+        showToast(`✓ Permohonan ${decision === 'approved' ? 'diluluskan' : 'ditolak'}!`);
+        window.loadAdminRequests();
+    } catch (error) {
+        console.error(error);
+        showToast('× Ralat: ' + error.message);
+    }
+};
+
+window.promptRejectRequest = function(requestId) {
+    const reason = prompt("Sila nyatakan sebab penolakan:");
+    if (reason !== null) {
+        window.rejectSellerRequest(requestId, reason);
+    }
+};
+
+window.rejectSellerRequest = async function(requestId, reason) {
+    const user = auth.currentUser;
+    if (!user) return;
+    
+    try {
+        const { doc, updateDoc, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        await updateDoc(doc(db, "sellerRequests", requestId), {
+            status: "rejected",
+            reviewedAt: serverTimestamp(),
+            reviewedBy: user.uid,
+            reviewNote: reason
+        });
+        
+        showToast('✓ Permohonan ditolak!');
+        window.loadAdminRequests();
+    } catch (error) {
+        console.error(error);
+        showToast('× Ralat: ' + error.message);
+    }
+};
+
+window.loadAdminUsers = async function() {
+    try {
+        const { collection, getDocs } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        const usersRef = collection(db, "users");
+        const snapshot = await getDocs(usersRef);
+        
+        const container = document.getElementById('admin-users-list');
+        if (!container) return;
+        
+        if (snapshot.empty) {
+            container.innerHTML = '<p style="text-align: center; padding: 2rem;">Tiada pengguna.</p>';
+            return;
+        }
+        
+        let html = '<div style="overflow-x: auto;"><table style="width: 100%; border-collapse: collapse;">';
+        html += '<tr style="background: var(--light);"><th style="padding: 10px; text-align: left; border-bottom: 2px solid var(--border);">Name</th><th style="padding: 10px; text-align: left; border-bottom: 2px solid var(--border);">Email</th><th style="padding: 10px; text-align: left; border-bottom: 2px solid var(--border);">Role</th></tr>';
+        
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            const role = data.role || 'buyer';
+            const roleColor = role === 'admin' ? '#ef4444' : role === 'seller' ? '#22c55e' : '#6b7280';
+            
+            html += `<tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 10px;">${data.fullName || 'Unknown'}</td>
+                <td style="padding: 10px;">${data.email}</td>
+                <td style="padding: 10px;"><span style="padding: 3px 8px; background: ${roleColor}; color: white; border-radius: 10px; font-size: 12px;">${role}</span></td>
+            </tr>`;
+        });
+        
+        html += '</table></div>';
+        container.innerHTML = html;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+window.loadAdminProducts = async function() {
+    try {
+        const { collection, getDocs } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        const productsRef = collection(db, "products");
+        const snapshot = await getDocs(productsRef);
+        
+        const container = document.getElementById('admin-products-list');
+        if (!container) return;
+        
+        if (snapshot.empty) {
+            container.innerHTML = '<p style="text-align: center; padding: 2rem;">Tiada produk.</p>';
+            return;
+        }
+        
+        let html = '';
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            html += `
+                <div style="padding: 1rem; margin-bottom: 1rem; background: white; border: 1px solid var(--border); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong>${data.name}</strong>
+                        <span style="margin-left: 10px; color: var(--primary);">RM ${data.price}</span>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">by ${data.sellerName || 'Unknown'} • ${data.category}</div>
+                    </div>
+                    <span style="padding: 4px 10px; background: ${data.status === 'available' ? '#dcfce7' : '#fee2e2'}; color: ${data.status === 'available' ? '#166534' : '#991b1b'}; border-radius: 12px; font-size: 12px;">
+                        ${data.status}
+                    </span>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+// ===== ROLE-BASED UI =====
+window.updateUIBasedOnRole = async function() {
+    const user = auth.currentUser;
+    
+    const becomeSellerBtn = document.getElementById('nav-become-seller');
+    const adminBtn = document.getElementById('nav-admin');
+    const sellBtn = document.getElementById('nav-sell');
+    
+    if (!user) {
+        if (becomeSellerBtn) becomeSellerBtn.style.display = 'none';
+        if (adminBtn) adminBtn.style.display = 'none';
+        if (sellBtn) sellBtn.style.display = 'none';
+        return;
+    }
+    
+    try {
+        const { doc, getDoc } = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js");
+        const { db } = await import('./js/firebase.js');
+        
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        const role = userDoc.exists() ? (userDoc.data().role || 'buyer') : 'buyer';
+        
+        if (becomeSellerBtn) becomeSellerBtn.style.display = 'none';
+        if (adminBtn) adminBtn.style.display = 'none';
+        if (sellBtn) sellBtn.style.display = 'none';
+        
+        if (role === 'admin') {
+            if (becomeSellerBtn) becomeSellerBtn.style.display = 'flex';
+            if (adminBtn) adminBtn.style.display = 'flex';
+            if (sellBtn) sellBtn.style.display = 'flex';
+        } else if (role === 'seller') {
+            if (sellBtn) sellBtn.style.display = 'flex';
+        } else {
+            if (becomeSellerBtn) becomeSellerBtn.style.display = 'flex';
+        }
+    } catch (error) {
+        console.error("Error checking role:", error);
+    }
+};
+
+// ===== INITIALIZE ON PAGE LOAD =====
+// Force show home page if showPage exists
+if (typeof window.showPage === 'function') {
+    window.showPage('home');
+} else {
+    // Emergency fallback
+    const homePage = document.getElementById('page-home');
+    if (homePage) {
+        homePage.style.display = 'block';
+        homePage.classList.add('active-page');
+    }
+}
+
+// Auth state listener
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        console.log("User is logged in:", user.email);
+        await window.updateUIBasedOnRole();
+    } else {
+        console.log("User is logged out");
+    }
+});
+
 </script>
-
 </body>
 </html>
